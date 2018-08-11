@@ -55,6 +55,9 @@ for subreddit in subreddits:
                     if name in imglist or name in blacklist:
                         continue
 
+                    # Catch Imgur URL
+                    url = re.sub(r"^http(s)?:\/\/imgur\.com\/(.+)$", r"https://i.imgur.com/\2.jpg", url)
+
                     # Filter brackets, resolution and author from title
                     title = post['data']['title']
                     title = re.sub(r'\[.*\](.)*', '', title)
