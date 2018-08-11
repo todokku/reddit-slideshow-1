@@ -15,12 +15,17 @@ setInterval(clock, 1000);
 
 // Slideshow
 
+var keys = Object.keys(list);
+var rand = list[keys[ keys.length * Math.random() << 0]]; // First image
+
 function slideshow() {
-    var keys = Object.keys(list);
-    var rand =  list[keys[ keys.length * Math.random() << 0]];
     document.body.style.backgroundImage = 'url("img/' + rand['file'] + '")';
     document.querySelector('.location').textContent = rand['title'];
+
+    rand = list[keys[ keys.length * Math.random() << 0]];
+    var img=new Image(); // Preload next image
+    img.src = "img/" + rand['file'];
 }
 
 document.addEventListener('DOMContentLoaded', slideshow);
-setInterval(slideshow, 10000);
+setInterval(slideshow, 60000);
