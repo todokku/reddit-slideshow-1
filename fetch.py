@@ -106,7 +106,7 @@ for subreddit in subreddits:
                         if resize == True:
                             with Image.open(output_path + name + ".jpg") as image:
                                 img = resizeimage.resize_cover(image, [min_width, min_height])
-                                img.save(output_path + name + ".jpg", image.format)
+                                img.save(output_path + name + ".jpg", image.format, quality=100)
 
                         imglist[name] = { 'title': title, 'file': name + ".jpg" }
 
