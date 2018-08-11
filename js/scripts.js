@@ -17,16 +17,27 @@ setInterval(clock, 1000);
 // Slideshow
 // ---------
 
-var keys = Object.keys(list);
-var rand = list[keys[ keys.length * Math.random() << 0]];  // Select the first image randomly
+
+// Shuffle image list (Durstenfeld algorithm)
+var keys = Object.keys(images),
+    index = 0;
+
+for (var i = keys.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var temp = keys[i];
+    keys[i] = keys[j];
+    keys[j] = temp;
+}
 
 function slideshow() {
-    document.body.style.backgroundImage = 'url("img/' + rand['file'] + '")'; // Update image
-    document.querySelector('.location').textContent = rand['title'];         // Update title
+    img = images[keys[index]]; // Show current image and title
+    document.body.style.backgroundImage = 'url("img/' + img['file'] + '")';
+    document.querySelector('.location').textContent = img['title'];
 
-    rand = list[keys[ keys.length * Math.random() << 0]];  // Select next image randomly
-    var img=new Image();                                   // Preload next image
-    img.src = "img/" + rand['file'];
+    index += 1; // Preload next image
+    img = images[keys[index]];
+    var preload=new Image();                                   
+    preload.src = "img/" + img['file'];
 }
 
 document.addEventListener('DOMContentLoaded', slideshow);

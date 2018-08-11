@@ -23,7 +23,7 @@ if not os.path.exists(output_path):
 # Load existing images list 
 try:
     with open(output_list, 'r') as f:
-        imglist = f.read().replace('var list = ', '')
+        imglist = f.read().replace('var images = ', '')
         imglist = json.loads(imglist)
 except:
     imglist = {}
@@ -104,7 +104,7 @@ for subreddit in subreddits:
 
     # Export image list
     with open('js/data.js', 'w') as f:
-        print('var list = ' + json.dumps(imglist), file=f)
+        print('var images = ' + json.dumps(imglist), file=f)
 
     # Export blacklist
     with open('blacklist', 'wb') as f:
