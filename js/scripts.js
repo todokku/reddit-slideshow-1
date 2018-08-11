@@ -16,9 +16,11 @@ setInterval(clock, 1000);
 // Slideshow
 
 function slideshow() {
-    var rand = list[Math.floor(Math.random() * list.length)];
-    document.body.style.backgroundImage = 'url("img/' + rand['img'] + '")';
+    var keys = Object.keys(list);
+    var rand =  list[keys[ keys.length * Math.random() << 0]];
+    document.body.style.backgroundImage = 'url("img/' + rand['file'] + '")';
     document.querySelector('.location').textContent = rand['title'];
 }
 
-setInterval(slideshow, 3000);
+document.addEventListener('DOMContentLoaded', slideshow);
+setInterval(slideshow, 10000);

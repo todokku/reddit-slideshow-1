@@ -6,9 +6,8 @@
   }
   
 body {
-    background: url('../img/godafoss_iceland.jpg') no-repeat center center fixed;
+    background: #000000 no-repeat center center fixed;
     background-size: cover;
-    transition: background 0.8s linear;
     margin: 0;
 }
 
