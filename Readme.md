@@ -1,4 +1,4 @@
-# EarthPorn (+ Shairport) slideshow
+# Reddit Slideshow
 
 This repository shows a HTML/Javascript slideshow displaying images from Reddit, such as [EarthPorn](https://www.reddit.com/r/EarthPorn/). The goal is to provide a Chromecast-like slideshow on a TV screen using a Raspberry Pi.
 
@@ -11,7 +11,7 @@ It requires two librairies: `pip install Pillow tqdm`.
 
 
 
-## Displaying the slideshow on a Raspberry Pi (Chromecast-like)
+## Displaying the slideshow on a Raspberry Pi (kiosk mode)
 
 We will install X server, [Chromium](https://www.chromium.org) browser, and `unclutter` (in order to hide the cursor). 
 
