@@ -7,7 +7,8 @@ This repository shows a HTML/Javascript slideshow displaying images from Reddit,
 
 Simply run `python fetch.py` with Python 3 to fetch the images.
 
-It requires two librairies: `pip install Pillow tqdm`.
+It requires three librairies: `pip install Pillow python-resize-image tqdm`.
+
 
 
 

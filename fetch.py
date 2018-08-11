@@ -1,5 +1,6 @@
 import urllib.request, json, re, os, pickle
 from PIL import Image
+from resizeimage import resizeimage
 from tqdm import tqdm
 
 
@@ -14,6 +15,7 @@ output_path = "img/"
 min_width  = 1920           # minimal width, height and ratio to keep the image
 min_height = 1080
 min_ratio  =  1
+resize     = True
 
 
 # Create output directory if it doesn't exist
@@ -100,6 +102,12 @@ for subreddit in subreddits:
                         os.remove(output_path + name + ".jpg")
 
                     else:
+                        # Resize image
+                        if resize == True:
+                            with Image.open(output_path + name + ".jpg") as image:
+                                img = resizeimage.resize_cover(image, [min_width, min_height])
+                                img.save(output_path + name + ".jpg", image.format)
+
                         imglist[name] = { 'title': title, 'file': name + ".jpg" }
 
     # Export image list
