@@ -16,6 +16,10 @@ min_height = 1080
 min_ratio  =  1
 
 
+# Create output directory if it doesn't exist
+if not os.path.exists(output_path):
+    os.makedirs(output_path)
+
 # Load existing images list 
 try:
     with open(output_list, 'r') as f:
