@@ -17,28 +17,33 @@ setInterval(clock, 1000);
 // Slideshow
 // ---------
 
-
-// Shuffle image list (Durstenfeld algorithm)
 var keys = Object.keys(images),
     index = 0;
 
-for (var i = keys.length - 1; i > 0; i--) {
-    var j = Math.floor(Math.random() * (i + 1));
-    var temp = keys[i];
-    keys[i] = keys[j];
-    keys[j] = temp;
+function shuffle() {
+    // Shuffle image list (Durstenfeld algorithm)
+    for (var i = keys.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var temp = keys[i];
+        keys[i] = keys[j];
+        keys[j] = temp;
+    }
+
+    slideshow();
 }
 
 function slideshow() {
-    img = images[keys[index]]; // Show current image and title
+    // Show current image and title
+    img = images[keys[index]];
     document.body.style.backgroundImage = 'url("img/' + img['file'] + '")';
     document.querySelector('.location').textContent = img['title'];
 
-    index += 1; // Preload next image
+    // Preload next image
+    index += 1;
     img = images[keys[index]];
     var preload=new Image();                                   
     preload.src = "img/" + img['file'];
 }
 
-document.addEventListener('DOMContentLoaded', slideshow);
+document.addEventListener('DOMContentLoaded', shuffle);
 setInterval(slideshow, 60000);
