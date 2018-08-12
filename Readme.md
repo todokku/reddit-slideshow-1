@@ -42,7 +42,7 @@ if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
 fi
 ```
 
-Finally, edit the `~/.xinitrc` to load Chromium when X starts (edit with your current resolution):
+Finally, edit the `~/.xinitrc` to load Chromium when X starts (edit with your current resolution) (where `/home/pi/reddit-slideshow/index.html` is the location of your slideshow):
 
 ```bash
 #!/bin/sh
@@ -51,11 +51,25 @@ xset s off
 xset s noblank
 
 unclutter &
-chromium-browser /home/pi/earthporn-slideshow/index.html --window-size=1920,1080 --start-fullscreen --kiosk --incognito --noerrdialogs --disable-translate --no-first-run --fast --fast-start --disable-infobars --disk-cache-dir=/dev/null
+chromium-browser /home/pi/reddit-slideshow/index.html --window-size=1920,1080 --start-fullscreen --kiosk --incognito --noerrdialogs --disable-translate --no-first-run --fast --fast-start --disable-infobars --disk-cache-dir=/dev/null
 ```
 
 
 ## Shairport metadata
 
 *Coming soon*
+
+
+Then, simply add at the end of `js/scripts.js`:
+
+```js
+var ws = new WebSocket('ws://127.0.0.1:9000/');
+
+ws.onclose = function() {
+    document.querySelector('.shairport').textContent = "";
+};
+ws.onmessage = function(event) {
+    document.querySelector('.shairport').textContent = event.data;
+};
+```
 
