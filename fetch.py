@@ -111,7 +111,7 @@ for subreddit in subreddits:
                         imglist[name] = { 'title': title, 'file': name + ".jpg" }
 
     # Export image list
-    with open('js/data.js', 'w') as f:
+    with open(output_list, 'w') as f:
         print('var images = ' + json.dumps(imglist), file=f)
 
     # Export blacklist
