@@ -2,9 +2,7 @@
 
 This repository provides a **Chromecast like** slideshow, written in HTML/CSS/Javascript. It displays various images from Reddit, such as [EarthPorn](https://www.reddit.com/r/EarthPorn/) subreddit.
 
-[See the demo.](https://slideshow.durand.tf)
-
-[![Preview](preview.gif)](https://slideshow.durand.tf)
+![Preview](preview.gif)
 
 
 A simple plugin also allow to show realtime Shairport metadata: please [see below](#shairport-metadata).
