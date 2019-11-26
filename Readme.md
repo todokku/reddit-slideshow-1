@@ -19,4 +19,4 @@ Then, just open *index.html* with your favorite browser!
 
 ## Kiosk mode *(Chromecast-like)*
 
-This slideshow were initially meant to be displayed on a Raspberry Pi, launched fullscreen on startup. See [here](https://www.sylvaindurand.org/launch-chromium-in-kiosk-mode/) how to achieve it! 
+This slideshow were initially meant to be displayed on a Raspberry Pi, launched fullscreen on startup. See [here](https://www.sylvaindurand.org/launch-chromium-in-kiosk-mode/) how to achieve it!
